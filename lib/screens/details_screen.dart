@@ -1,9 +1,11 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import 'package:petApp/configuration.dart';
 import 'package:petApp/widgets/custom_button.dart';
 import 'package:petApp/widgets/custom_icon_button.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class DetailsScreen extends StatelessWidget {
   String id;
@@ -72,7 +74,7 @@ class DetailsScreen extends StatelessWidget {
                             children: [
                               CircleAvatar(
                                 backgroundImage:
-                                    AssetImage('images/profile.jpg'),
+                                    AssetImage('assets/images/profile.jpg'),
                               ),
                               SizedBox(
                                 width: 10,

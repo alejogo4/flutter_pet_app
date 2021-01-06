@@ -26,7 +26,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CircleAvatar(
-                  backgroundImage: AssetImage('images/profile.jpg'),
+                  backgroundImage: AssetImage('assets/images/profile.jpg'),
                 ),
                 SizedBox(
                   width: 20,

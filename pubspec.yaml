@@ -45,15 +45,16 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-    - images/
+    - assets/images/
+    - assets/fonts/
 
   fonts:
     - family: Circular
       fonts:
-        - asset: fonts/CircularAir-Medium.ttf
-        - asset: fonts/CircularAir-Bold.ttf
+        - asset: assets/fonts/CircularAir-Medium.ttf
+        - asset: assets/fonts/CircularAir-Bold.ttf
           weight: 700
-        - asset: fonts/CircularAir-Light.ttf
+        - asset: assets/fonts/CircularAir-Light.ttf
           weight: 300
 
   # To add assets to your application, add an assets section, like this:
