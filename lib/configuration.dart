@@ -14,18 +14,18 @@ List<BoxShadow> customShadow = [
 ];
 
 List<Map> categories = [
-  {"name": "Cats", "iconPath": "images/cat.png"},
-  {"name": "Dogs", "iconPath": "images/dog.png"},
-  {"name": "Bunnies", "iconPath": "images/bunny.png"},
-  {"name": "Birds", "iconPath": "images/bird.png"},
-  {"name": "Horses", "iconPath": "images/horse.png"},
+  {"name": "Cats", "iconPath": "assets/images/cat.png"},
+  {"name": "Dogs", "iconPath": "assets/images/dog.png"},
+  {"name": "Bunnies", "iconPath": "assets/images/bunny.png"},
+  {"name": "Birds", "iconPath": "assets/images/bird.png"},
+  {"name": "Horses", "iconPath": "assets/images/horse.png"},
 ];
 
 List<Map> dogs = [
   {
     "id": "1",
     "name": "Bruno",
-    "imagePath": "images/dog0.png",
+    "imagePath": "assets/images/dog0.png",
     "breed": "Beagle",
     "gender": "male",
     "age": "0",
@@ -34,7 +34,7 @@ List<Map> dogs = [
   {
     "id": "2",
     "name": "Miko",
-    "imagePath": "images/dog1.png",
+    "imagePath": "assets/images/dog1.png",
     "breed": "Labrador",
     "gender": "female",
     "age": "3",
@@ -43,7 +43,7 @@ List<Map> dogs = [
   {
     "id": "3",
     "name": "Edgar",
-    "imagePath": "images/dog2.png",
+    "imagePath": "assets/images/dog2.png",
     "breed": "Pug",
     "gender": "male",
     "age": "1",
@@ -52,7 +52,7 @@ List<Map> dogs = [
   {
     "id": "4",
     "name": "Brutus",
-    "imagePath": "images/dog3.png",
+    "imagePath": "assets/images/dog3.png",
     "breed": "German Shephard",
     "gender": "male",
     "age": "1",
@@ -61,7 +61,7 @@ List<Map> dogs = [
   {
     "id": "5",
     "name": "Thunder",
-    "imagePath": "images/dog4.png",
+    "imagePath": "assets/images/dog4.png",
     "breed": "Greyhound",
     "gender": "female",
     "age": "3",
@@ -70,7 +70,7 @@ List<Map> dogs = [
   {
     "id": "6",
     "name": "Chatus",
-    "imagePath": "images/dog5.png",
+    "imagePath": "assets/images/dog5.png",
     "breed": "Labrador",
     "gender": "male",
     "age": "8",
@@ -79,7 +79,7 @@ List<Map> dogs = [
   {
     "id": "7",
     "name": "Lucky",
-    "imagePath": "images/dog6.png",
+    "imagePath": "assets/images/dog6.png",
     "breed": "Bull Dog",
     "gender": "female",
     "age": "10",
@@ -88,7 +88,7 @@ List<Map> dogs = [
   {
     "id": "8",
     "name": "Cheese",
-    "imagePath": "images/dog7.png",
+    "imagePath": "assets/images/dog7.png",
     "breed": "Doberman",
     "gender": "female",
     "age": "5",
@@ -97,7 +97,7 @@ List<Map> dogs = [
   {
     "id": "9",
     "name": "Pixie",
-    "imagePath": "images/dog8.png",
+    "imagePath": "assets/images/dog8.png",
     "breed": "Cavalier King Charles Spaniel",
     "gender": "male",
     "age": "2",
@@ -106,7 +106,7 @@ List<Map> dogs = [
   {
     "id": "10",
     "name": "Bolt",
-    "imagePath": "images/dog9.png",
+    "imagePath": "assets/images/dog9.png",
     "breed": "German Shephard",
     "gender": "female",
     "age": "4",

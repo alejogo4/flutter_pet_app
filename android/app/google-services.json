@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1007716259025",
+    "project_id": "pet-friend-49036",
+    "storage_bucket": "pet-friend-49036.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1007716259025:android:eeea24b0589699827521f0",
+        "android_client_info": {
+          "package_name": "com.realinc.petfriend"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1007716259025-5h7rkvbc7ehnjoq1gvgldfcj2kj8ufur.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-ornDB_0BSv1Daf9BHcaDsIf-yZ1TYXE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1007716259025-5h7rkvbc7ehnjoq1gvgldfcj2kj8ufur.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
