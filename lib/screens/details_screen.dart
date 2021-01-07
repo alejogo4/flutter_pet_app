@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'package:petApp/configuration.dart';
+import 'package:petApp/config/configuration.dart';
 import 'package:petApp/widgets/custom_button.dart';
 import 'package:petApp/widgets/custom_icon_button.dart';
 

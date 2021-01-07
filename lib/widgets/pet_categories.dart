@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../configuration.dart';
+
+import 'package:petApp/config/configuration.dart';
 
 class PetCategories extends StatefulWidget {
   PetCategories({Key key}) : super(key: key);

@@ -1,6 +1,7 @@
-import 'package:petApp/configuration.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'package:petApp/config/configuration.dart';
 
 class DrawerScreen extends StatefulWidget {
   DrawerScreen({Key key}) : super(key: key);

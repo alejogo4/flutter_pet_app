@@ -1,5 +1,6 @@
-import 'package:petApp/configuration.dart';
 import 'package:flutter/material.dart';
+
+import 'package:petApp/config/configuration.dart';
 
 class CustomButton extends StatelessWidget {
   var onTap;

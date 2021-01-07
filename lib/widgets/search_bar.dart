@@ -1,6 +1,7 @@
-import 'package:petApp/configuration.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'package:petApp/config/configuration.dart';
 
 class SearchBar extends StatelessWidget {
   const SearchBar({Key key}) : super(key: key);

@@ -1,9 +1,30 @@
-import 'package:petApp/configuration.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+import 'package:petApp/config/configuration.dart';
 import 'package:petApp/widgets/pet_categories.dart';
 import 'package:petApp/widgets/pet_category_display.dart';
 import 'package:petApp/widgets/search_bar.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+
+import 'drawer_screen.dart';
+
+class HomePage extends StatelessWidget {
+  const HomePage({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Scaffold(
+        body: Stack(
+          children: [
+            DrawerScreen(),
+            HomeScreen(),
+          ],
+        ),
+      ),
+    );
+  }
+}
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key key}) : super(key: key);

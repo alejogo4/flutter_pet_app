@@ -1,8 +1,9 @@
-import 'package:petApp/widgets/pet_card.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
-import '../configuration.dart';
+import 'package:petApp/widgets/pet_card.dart';
+
+import 'package:petApp/config/configuration.dart';
 
 class PetCategoryDisplay extends StatelessWidget {
   const PetCategoryDisplay({Key key}) : super(key: key);

@@ -1,10 +1,10 @@
-import 'dart:math';
-
-import 'package:petApp/screens/details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../configuration.dart';
+import 'dart:math';
+
+import 'package:petApp/screens/details_screen.dart';
+import 'package:petApp/config/configuration.dart';
 
 class PetCard extends StatelessWidget {
   String petId;
