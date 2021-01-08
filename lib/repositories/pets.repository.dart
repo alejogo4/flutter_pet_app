@@ -1,5 +1,6 @@
 import 'package:flutter/services.dart';
 
+import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:petApp/models/pets.model.dart';
 
@@ -12,12 +13,16 @@ class PetsRepository {
   Future<List<PetsModel>> getPets() async {
     try {
       List<PetsModel> data = List();
+
       await this.firestore.collection('pets').get()
-        ..docs.forEach((element) {
+        ..docs.forEach((element) async {
+          String url = await firebase_storage.FirebaseStorage.instance
+              .ref('images/pets/${element["imagePath"]}')
+              .getDownloadURL();
           data.add(PetsModel(
             id: element.id,
             name: element["name"],
-            imagePath: element["imagePath"],
+            imagePath: url,
             breed: element["breed"],
             gender: element["gender"],
             age: element["age"],
