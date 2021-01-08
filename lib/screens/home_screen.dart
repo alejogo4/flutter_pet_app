@@ -110,7 +110,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           children: [
                             Icon(
                               Icons.location_pin,
-                              color: primaryGreen,
+                              color: primaryBlue,
                               size: 16,
                             ),
                             // Text('Hello'),

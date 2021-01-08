@@ -16,11 +16,11 @@ class CustomIconButton extends StatelessWidget {
         width: 70,
         height: 55,
         decoration: BoxDecoration(
-          color: primaryGreen,
+          color: primaryBlue,
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: primaryGreen.withOpacity(0.6),
+              color: primaryBlue.withOpacity(0.6),
               blurRadius: 30,
               offset: Offset(0, 10),
             ),

@@ -2,9 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-Color primaryGreen = Color(0xff416d6d);
-Color secondaryGreen = Color(0xff16a085);
+Color primaryBlue = Color(0xff153C8C);
+Color secondaryBlue = Color(0xff057AF9);
+Color tertiaryBlue = Color(0xff2A90FD);
+Color black = Color(0xff0D0D0D);
+Color white = Color(0xfff2F2F2);
 Color fadedBlack = Colors.black.withAlpha(150);
+
 List<BoxShadow> customShadow = [
   BoxShadow(
     color: Colors.grey[300],

@@ -114,7 +114,7 @@ class PetCard extends StatelessWidget {
                               Icon(
                                 Icons.location_pin,
                                 size: 16,
-                                color: primaryGreen,
+                                color: primaryBlue,
                               ),
                               SizedBox(
                                 width: 5,

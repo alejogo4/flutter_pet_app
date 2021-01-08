@@ -43,7 +43,7 @@ class _PetCategoriesState extends State<PetCategories> {
                       boxShadow: customShadow,
                       border: selectedCategory == index
                           ? Border.all(
-                              color: secondaryGreen,
+                              color: secondaryBlue,
                               width: 2,
                             )
                           : null,

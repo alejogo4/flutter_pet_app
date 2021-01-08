@@ -218,7 +218,7 @@ class DetailsScreen extends StatelessWidget {
                       Icon(
                         Icons.location_pin,
                         size: 18,
-                        color: primaryGreen,
+                        color: primaryBlue,
                       ),
                       SizedBox(
                         width: 5,

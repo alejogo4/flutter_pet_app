@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:petApp/config/configuration.dart';
 
 class CustomButton extends StatelessWidget {
@@ -17,11 +16,11 @@ class CustomButton extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 30),
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color: primaryGreen,
+          color: primaryBlue,
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: primaryGreen.withOpacity(0.6),
+              color: primaryBlue.withOpacity(0.6),
               blurRadius: 30,
               offset: Offset(0, 10),
             ),
