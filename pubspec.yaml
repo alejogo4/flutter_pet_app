@@ -29,6 +29,7 @@ dependencies:
   equatable: ^1.2.5
   firebase_auth: ^0.18.3
   firebase_core: ^0.5.3
+  firebase_storage: ^5.2.0
   flutter_bloc: ^6.1.1
   font_awesome_flutter: ^8.11.0
   google_sign_in: ^4.5.6

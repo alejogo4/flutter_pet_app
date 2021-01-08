@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'package:petApp/blocs/pets/pets_bloc.dart';
+import 'package:petApp/models/pets.model.dart';
 
 import 'package:petApp/widgets/pet_card.dart';
 
@@ -10,25 +14,41 @@ class PetCategoryDisplay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView.builder(
-        physics: BouncingScrollPhysics(),
-        itemCount: dogs.length,
-        itemBuilder: (context, index) {
-          return Container(
-            margin: EdgeInsets.symmetric(vertical: 5),
-            child: PetCard(
-              petId: dogs[index]['id'],
-              petName: dogs[index]['name'],
-              age: dogs[index]['age'],
-              breed: dogs[index]['breed'],
-              gender: dogs[index]['gender'],
-              distance: dogs[index]['distance'],
-              imagePath: dogs[index]['imagePath'],
+    return BlocBuilder<PetsBloc, PetsState>(
+      builder: (context, state) {
+        print(state);
+        if (state is PetsLoading) {
+          return Expanded(
+            child: Center(
+              child: CircularProgressIndicator(),
             ),
           );
-        },
-      ),
+        } else if (state is PetsData) {
+          List<PetsModel> data = state.data;
+          return Expanded(
+            child: ListView.builder(
+              physics: BouncingScrollPhysics(),
+              itemCount: data.length,
+              itemBuilder: (context, index) {
+                return Container(
+                  margin: EdgeInsets.symmetric(vertical: 5),
+                  child: PetCard(
+                    petId: data[index].id,
+                    petName: data[index].name,
+                    age: data[index].age,
+                    breed: data[index].breed,
+                    gender: data[index].gender,
+                    distance: data[index].distance,
+                    imagePath: 'assets/images/${data[index].imagePath}',
+                  ),
+                );
+              },
+            ),
+          );
+        } else {
+          return Container();
+        }
+      },
     );
   }
 }

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:petApp/router/generate_route.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'package:petApp/blocs/pets/pets_bloc.dart';
+import 'package:petApp/router/generate_route.dart';
 import 'package:petApp/router/routes.dart';
 
 Future main() async {
@@ -15,11 +17,16 @@ class InitPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      initialRoute: Routes.loginBoot,
-      onGenerateRoute: (settings) => GenerateRoute().init(settings, context),
-      theme: ThemeData(fontFamily: 'Circular'),
-      debugShowCheckedModeBanner: false,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (_) => new PetsBloc()),
+      ],
+      child: MaterialApp(
+        initialRoute: Routes.home,
+        onGenerateRoute: (settings) => GenerateRoute().init(settings, context),
+        theme: ThemeData(fontFamily: 'Circular'),
+        debugShowCheckedModeBanner: false,
+      ),
     );
   }
 }
