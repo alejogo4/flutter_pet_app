@@ -14,41 +14,48 @@ class PetCategoryDisplay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<PetsBloc, PetsState>(
-      builder: (context, state) {
-        print(state);
-        if (state is PetsLoading) {
-          return Expanded(
-            child: Center(
-              child: CircularProgressIndicator(),
-            ),
-          );
-        } else if (state is PetsData) {
-          List<PetsModel> data = state.data;
-          return Expanded(
-            child: ListView.builder(
-              physics: BouncingScrollPhysics(),
-              itemCount: data.length,
-              itemBuilder: (context, index) {
-                return Container(
-                  margin: EdgeInsets.symmetric(vertical: 5),
-                  child: PetCard(
-                    petId: data[index].id,
-                    petName: data[index].name,
-                    age: data[index].age,
-                    breed: data[index].breed,
-                    gender: data[index].gender,
-                    distance: data[index].distance,
-                    imagePath: 'assets/images/${data[index].imagePath}',
-                  ),
-                );
-              },
-            ),
-          );
-        } else {
-          return Container();
+    return BlocListener<PetsBloc, PetsState>(
+      listener: (context, state) {
+        if (state is PetsError) {
+          print(state.message);
+          return Text(state.message);
         }
       },
+      child: BlocBuilder<PetsBloc, PetsState>(
+        builder: (context, state) {
+          if (state is PetsLoading) {
+            return Expanded(
+              child: Center(
+                child: CircularProgressIndicator(),
+              ),
+            );
+          } else if (state is PetsData) {
+            List<PetsModel> data = state.data;
+            return Expanded(
+              child: ListView.builder(
+                physics: BouncingScrollPhysics(),
+                itemCount: data.length,
+                itemBuilder: (context, index) {
+                  return Container(
+                    margin: EdgeInsets.symmetric(vertical: 5),
+                    child: PetCard(
+                      petId: data[index].id,
+                      petName: data[index].name,
+                      age: data[index].age,
+                      breed: data[index].breed,
+                      gender: data[index].gender,
+                      distance: data[index].distance,
+                      imagePath: data[index].imagePath,
+                    ),
+                  );
+                },
+              ),
+            );
+          } else {
+            return Container();
+          }
+        },
+      ),
     );
   }
 }

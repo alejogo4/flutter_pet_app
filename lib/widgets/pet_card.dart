@@ -158,7 +158,7 @@ class PetCard extends StatelessWidget {
                   Align(
                     child: Hero(
                       tag: petId,
-                      child: Image.asset(
+                      child: Image.network(
                         imagePath,
                       ),
                     ),
