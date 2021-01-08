@@ -1,13 +1,9 @@
 import 'package:flutter/services.dart';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:petApp/models/pets.model.dart';
+import 'package:petApp/repositories/repository.dart';
 
-class PetsRepository {
-  FirebaseFirestore firestore;
-  PetsRepository() {
-    this.firestore = FirebaseFirestore.instance;
-  }
+class PetsRepository extends Repository {
+  PetsRepository() : super();
 
   Future<List<PetsModel>> getPets() async {
     try {
