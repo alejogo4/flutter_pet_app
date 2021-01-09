@@ -8,3 +8,8 @@ abstract class PetsEvent extends Equatable {
 }
 
 class FetchPets extends PetsEvent {}
+
+class ResponsePets extends PetsEvent {
+  final List<PetsModel> data;
+  ResponsePets(this.data);
+}

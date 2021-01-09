@@ -17,7 +17,6 @@ class PetCategoryDisplay extends StatelessWidget {
     return BlocListener<PetsBloc, PetsState>(
       listener: (context, state) {
         if (state is PetsError) {
-          print(state.message);
           return Text(state.message);
         }
       },

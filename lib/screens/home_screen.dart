@@ -46,6 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
+    print("entro");
     super.initState();
     petsBloc = BlocProvider.of<PetsBloc>(context);
     petsBloc.add(FetchPets());

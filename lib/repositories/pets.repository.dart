@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/services.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:petApp/models/pets.model.dart';
@@ -6,26 +7,26 @@ import 'package:petApp/repositories/repository.dart';
 class PetsRepository extends Repository {
   PetsRepository() : super();
 
-  Future<List<PetsModel>> getPets() async {
+  Stream<List<PetsModel>> getPets() {
     try {
-      List<PetsModel> data = List();
-
-      await this.firestore.collection('pets').get()
-        ..docs.forEach((element) async {
-          String url = await firebase_storage.FirebaseStorage.instance
-              .ref('images/pets/${element["imagePath"]}')
-              .getDownloadURL();
-          data.add(PetsModel(
-            id: element.id,
-            name: element["name"],
+      Query query = this.firestore.collection('pets');
+      return query.snapshots().map((snapshot) {
+        return snapshot.docs.map((doc) {
+          //            String url =  firebase_storage.FirebaseStorage.instance
+          // .ref('images/pets/${doc["imagePath"]}')
+          // .getDownloadURL();
+          String url = 'assets/images/${doc["imagePath"]}';
+          return PetsModel(
+            id: doc.id,
+            name: doc["name"],
             imagePath: url,
-            breed: element["breed"],
-            gender: element["gender"],
-            age: element["age"],
-            distance: element["distance"],
-          ));
-        });
-      return data;
+            breed: doc["breed"],
+            gender: doc["gender"],
+            age: doc["age"],
+            distance: doc["distance"],
+          );
+        }).toList();
+      });
     } on PlatformException catch (e) {
       throw Exception(e.toString());
     }

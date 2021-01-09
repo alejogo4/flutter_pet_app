@@ -10,6 +10,7 @@ part 'pets_state.dart';
 
 class PetsBloc extends Bloc<PetsEvent, PetsState> {
   final PetsRepository petsrepository = PetsRepository();
+  StreamSubscription _todosSubscription;
   PetsBloc() : super(PetsInitial());
 
   @override
@@ -18,16 +19,26 @@ class PetsBloc extends Bloc<PetsEvent, PetsState> {
   ) async* {
     if (event is FetchPets) {
       yield* _fetchPets(event);
+    }else if(event is ResponsePets){
+      yield PetsData(event.data);
     }
   }
 
   Stream<PetsState> _fetchPets(PetsEvent event) async* {
     try {
       yield PetsLoading();
-      var pets = await this.petsrepository.getPets();
-      yield PetsData(pets);
+      _todosSubscription?.cancel();
+      _todosSubscription = this.petsrepository.getPets().listen((data) {
+        add(ResponsePets(data));
+      });
     } catch (ex) {
       yield PetsError(ex.toString());
     }
+  }
+
+  @override
+  Future<void> close() {
+    _todosSubscription?.cancel();
+    return super.close();
   }
 }
