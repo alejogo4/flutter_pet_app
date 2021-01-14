@@ -1,7 +1,7 @@
 import 'package:flutter/services.dart';
-import 'package:petApp/models/categories.model.dart';
+import 'package:petApp/data/models/categories.model.dart';
 
-import 'package:petApp/repositories/repository.dart';
+import 'package:petApp/data/repositories/repository.dart';
 
 class CategoriesRepository extends Repository {
   CategoriesRepository() : super();

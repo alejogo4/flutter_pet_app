@@ -2,22 +2,35 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:petApp/blocs/pets/pets_bloc.dart';
-import 'package:petApp/models/pets.model.dart';
+import 'package:petApp/data/blocs/pets/pets_bloc.dart';
+import 'package:petApp/data/models/pets.model.dart';
 
 import 'package:petApp/widgets/pet_card.dart';
 
-import 'package:petApp/config/configuration.dart';
-
-class PetCategoryDisplay extends StatelessWidget {
+class PetCategoryDisplay extends StatefulWidget {
   const PetCategoryDisplay({Key key}) : super(key: key);
+
+  @override
+  _PetCategoryDisplayState createState() => _PetCategoryDisplayState();
+}
+
+class _PetCategoryDisplayState extends State<PetCategoryDisplay> {
+  PetsBloc petsBloc;
+
+  @override
+  void initState() {
+    super.initState();
+    petsBloc = BlocProvider.of<PetsBloc>(context);
+    petsBloc.add(FetchPets());
+  }
 
   @override
   Widget build(BuildContext context) {
     return BlocListener<PetsBloc, PetsState>(
       listener: (context, state) {
         if (state is PetsError) {
-          return Text(state.message);
+          final snackBar = SnackBar(content: Text(state.message));
+          return Scaffold.of(context).showSnackBar(snackBar);
         }
       },
       child: BlocBuilder<PetsBloc, PetsState>(

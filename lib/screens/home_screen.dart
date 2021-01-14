@@ -1,8 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'package:petApp/blocs/pets/pets_bloc.dart';
 
 import 'package:petApp/config/configuration.dart';
 import 'package:petApp/widgets/pet_categories.dart';
@@ -41,16 +38,6 @@ class _HomeScreenState extends State<HomeScreen> {
   double yOffset = 0;
   double scaleFactor = 1;
   bool showDrawer = false;
-
-  PetsBloc petsBloc;
-
-  @override
-  void initState() {
-    print("entro");
-    super.initState();
-    petsBloc = BlocProvider.of<PetsBloc>(context);
-    petsBloc.add(FetchPets());
-  }
 
   @override
   Widget build(BuildContext context) {

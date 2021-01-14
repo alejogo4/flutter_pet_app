@@ -9,7 +9,7 @@ abstract class CategoriesState extends Equatable {
 
 class CategoriesInitial extends CategoriesState {}
 
-class PetsLoading extends CategoriesState {}
+class CategoriesLoading extends CategoriesState {}
 
 class CategoriesData extends CategoriesState {
   final List<CategoriesModel> data;

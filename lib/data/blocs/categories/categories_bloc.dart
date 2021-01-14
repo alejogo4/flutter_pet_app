@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:petApp/models/categories.model.dart';
-import 'package:petApp/repositories/categories.repository copy.dart';
+import 'package:petApp/data/models/categories.model.dart';
+import 'package:petApp/data/repositories/categories.repository copy.dart';
 part 'categories_event.dart';
 part 'categories_state.dart';
 
@@ -20,7 +20,7 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
 
   Stream<CategoriesState> _fetchCategories(CategoriesEvent event) async* {
     try {
-      yield PetsLoading();
+      yield CategoriesLoading();
       var categories = await this.categoriesRepository.getCategories();
       yield CategoriesData(categories);
     } catch (ex) {

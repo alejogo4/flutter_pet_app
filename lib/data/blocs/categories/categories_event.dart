@@ -8,3 +8,8 @@ abstract class CategoriesEvent extends Equatable {
 }
 
 class FetchCategories extends CategoriesEvent {}
+
+class FetchPetsForCategories extends CategoriesEvent {
+  final String petsId;
+  FetchPetsForCategories({this.petsId});
+}

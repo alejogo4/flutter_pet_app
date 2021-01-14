@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/services.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
-import 'package:petApp/models/pets.model.dart';
-import 'package:petApp/repositories/repository.dart';
+import 'package:petApp/data/models/pets.model.dart';
+import 'package:petApp/data/repositories/repository.dart';
 
 class PetsRepository extends Repository {
   PetsRepository() : super();
