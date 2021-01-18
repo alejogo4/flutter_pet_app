@@ -31,4 +31,31 @@ class PetsRepository extends Repository {
       throw Exception(e.toString());
     }
   }
+
+  Future<List<PetsModel>> getPetsForCategories(categorieId) async {
+    try {
+      List<PetsModel> data = List();
+      await this
+          .firestore
+          .collection('pets')
+          .where('category_id', isEqualTo: categorieId)
+          .get()
+        ..docs.forEach((doc) {
+          print(doc);
+          String url = 'assets/images/${doc["imagePath"]}';
+          data.add(PetsModel(
+            id: doc.id,
+            name: doc["name"],
+            imagePath: url,
+            breed: doc["breed"],
+            gender: doc["gender"],
+            age: doc["age"],
+            distance: doc["distance"],
+          ));
+        });
+      return data;
+    } on PlatformException catch (e) {
+      throw Exception(e.toString());
+    }
+  }
 }

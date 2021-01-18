@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:petApp/config/configuration.dart';
 import 'package:petApp/data/blocs/categories/categories_bloc.dart';
+import 'package:petApp/data/blocs/pets/pets_bloc.dart';
 import 'package:petApp/data/models/categories.model.dart';
 
 class PetCategories extends StatefulWidget {
@@ -17,21 +18,24 @@ class _PetCategoriesState extends State<PetCategories> {
   int selectedCategory = 0;
 
   CategoriesBloc categoiresBloc;
+  PetsBloc petsBloc;
   @override
   void initState() {
     super.initState();
     categoiresBloc = BlocProvider.of<CategoriesBloc>(context);
+    petsBloc = BlocProvider.of<PetsBloc>(context);
     categoiresBloc.add(FetchCategories());
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener(listener: (context, state) {
+    return BlocListener<CategoriesBloc, CategoriesState>(
+        listener: (context, state) {
       if (state is CategoriesError) {
         final snackBar = SnackBar(content: Text(state.message));
         return Scaffold.of(context).showSnackBar(snackBar);
       }
-    }, child: BlocBuilder(
+    }, child: BlocBuilder<CategoriesBloc, CategoriesState>(
       builder: (_, state) {
         if (state is CategoriesLoading) {
           return Expanded(
@@ -57,8 +61,12 @@ class _PetCategoriesState extends State<PetCategories> {
                         onTap: () {
                           setState(() {
                             selectedCategory = index;
-                            categoiresBloc.add(
-                                FetchPetsForCategories(petsId: data[index].id));
+                            if (data[index].name == "Todos") {
+                              petsBloc.add(FetchPets());
+                            } else {
+                              petsBloc.add(FetchPetsForCategories(
+                                  petsId: data[index].id));
+                            }
                           });
                         },
                         child: Container(
@@ -78,7 +86,7 @@ class _PetCategoriesState extends State<PetCategories> {
                             borderRadius: BorderRadius.circular(20),
                           ),
                           child: Image.asset(
-                            data[index].iconPath,
+                            "assets/images/${data[index].iconPath}",
                             scale: 1.8,
                           ),
                         ),

@@ -21,6 +21,8 @@ class PetsBloc extends Bloc<PetsEvent, PetsState> {
       yield* _fetchPets(event);
     } else if (event is ResponsePets) {
       yield PetsData(event.data);
+    } else if (event is FetchPetsForCategories) {
+      yield* _fetchPetsForCategories(event);
     }
   }
 
@@ -31,6 +33,18 @@ class PetsBloc extends Bloc<PetsEvent, PetsState> {
       _todosSubscription = this.petsrepository.getPets().listen((data) {
         add(ResponsePets(data));
       });
+    } catch (ex) {
+      yield PetsError(ex.toString());
+    }
+  }
+
+  Stream<PetsState> _fetchPetsForCategories(
+      FetchPetsForCategories event) async* {
+    try {
+      yield PetsLoading();
+      var categories =
+          await this.petsrepository.getPetsForCategories(event.petsId);
+      yield PetsData(categories);
     } catch (ex) {
       yield PetsError(ex.toString());
     }

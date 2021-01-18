@@ -13,3 +13,8 @@ class ResponsePets extends PetsEvent {
   final List<PetsModel> data;
   ResponsePets(this.data);
 }
+
+class FetchPetsForCategories extends PetsEvent {
+  final String petsId;
+  FetchPetsForCategories({this.petsId});
+}

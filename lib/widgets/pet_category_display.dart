@@ -43,26 +43,34 @@ class _PetCategoryDisplayState extends State<PetCategoryDisplay> {
             );
           } else if (state is PetsData) {
             List<PetsModel> data = state.data;
-            return Expanded(
-              child: ListView.builder(
-                physics: BouncingScrollPhysics(),
-                itemCount: data.length,
-                itemBuilder: (context, index) {
-                  return Container(
-                    margin: EdgeInsets.symmetric(vertical: 5),
-                    child: PetCard(
-                      petId: data[index].id,
-                      petName: data[index].name,
-                      age: data[index].age,
-                      breed: data[index].breed,
-                      gender: data[index].gender,
-                      distance: data[index].distance,
-                      imagePath: data[index].imagePath,
-                    ),
-                  );
-                },
-              ),
-            );
+            if (data.length > 0) {
+              return Expanded(
+                child: ListView.builder(
+                  physics: BouncingScrollPhysics(),
+                  itemCount: data.length,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      margin: EdgeInsets.symmetric(vertical: 5),
+                      child: PetCard(
+                        petId: data[index].id,
+                        petName: data[index].name,
+                        age: data[index].age,
+                        breed: data[index].breed,
+                        gender: data[index].gender,
+                        distance: data[index].distance,
+                        imagePath: data[index].imagePath,
+                      ),
+                    );
+                  },
+                ),
+              );
+            } else {
+              return Expanded(
+                child: Center(
+                  child: Text('No se encontraron mascotas'),
+                ),
+              );
+            }
           } else {
             return Container();
           }
